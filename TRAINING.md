@@ -2,9 +2,10 @@
 | :----------------- | :------------------------------- |
 | **Objectives**     | Increase code quality by example |
 | **Teacher**        | Luca Tricerri                    |
-| **Duration**       | 2 sessions each of 2 hours        |
+| **Duration**       | 3 sessions each of 2 hours       |
 | **Prerequisites**  | basic C++11 or Java              |
 | **Class Max Size** | 10                               |
+| **Target**         | PhD students                     |
 
 # 1. Description
 Increase code quality using unit test via gtest and gmock.
@@ -16,18 +17,23 @@ Increase code quality using unit test via gtest and gmock.
 - How to mock with gmock
 
 ## 1.2. When
-End of January, if possible in presence.
+End of March, if possible in presence.
 
 ## 1.3. Prerequisite
-- Github account (https://github.com/)
-- Gitpod account (https://www.gitpod.io/)
-- Fork this repository 
-- To open the forked repo on Gitpod use the following button. It will take a while the first time.
+- Create Github account (https://github.com/)
+- Create Gitpod account (https://www.gitpod.io/)
+- Fork this repository:  
+    go to [this repo](https://github.com/triccyx/gtest-training)  
+    and use the `fork button` upper right.  
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
+    ![alt](img/gitpod001.png)
+
+    
+- Go to `your` Github account and select repo `gtest-training`
+- Use the `GitPod button`. It will take a while the first time.
 
 
-- [What is Gitpod?](https://www.gitpod.io/docs/getting-started)
+[What is Gitpod?](https://www.gitpod.io/docs/getting-started)
 
 Optional
 - Installed Gitpod Extension for Chrome
