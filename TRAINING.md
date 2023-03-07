@@ -573,4 +573,4 @@ cd /workspace/training-programming-best-practices/install/bin
 
 For future training ...  
 Please send me a feedback with all the critical points that can be done better and the things that are good.   
-Luca.tricerri@iit.it
+Luca.tricerri@gru.bitron-ind.com
