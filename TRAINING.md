@@ -21,7 +21,8 @@ End of March, if possible in presence.
 
 ## 1.3. Prerequisite
 - Create Github account (https://github.com/)
-- Create Gitpod account (https://www.gitpod.io/)
+- Create Gitpod account (https://www.gitpod.io/) using github credentials.
+- Install Chrome extension: https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki
 - Fork this repository:  
     go to [this repo](https://github.com/triccyx/gtest-training)  
     and use the `fork button` upper right.  
