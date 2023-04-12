@@ -17,7 +17,7 @@ Increase code quality using unit tests via gtest and gmock.
 - How to mock with gmock
 
 ## 1.2. When
-End of March, if possible in presence.
+End of April, if possible in presence.
 
 ## 1.3. Prerequisite
 - Create a Github account (https://github.com/)
@@ -40,6 +40,11 @@ Optional
 - Installed Gitpod Extension for Chrome
 (https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki)
 - Authorized Access
+
+## 1.4. Disclaimer
+Please note the following:
+- All in this document is copied from internet site and book
+- Do not pretend to remember the syntax, just remember that something can be done
 
 # 2. WHY UNIT TEST
 :question: So how can I test my software? `There are several ways to do that`.  
@@ -439,10 +444,43 @@ FetchContent_Declare(
 ## 4.13. References for gtest
 https://google.github.io/googletest/primer.html
 
-# 5. Exercises
+# 5. Unit Testing C code
+Is it possible UT for the C code? Yes, it is possible and it is widely done.
+There are some limitations to using gtest with C code.
+-  You cannot create an instance of the code under test
+-  You should take care of the initialization
 
+**CODE**: See code:multiplierlib and test:testMultiplier-c.cpp
+## 5.1. Reference
+Refer to:  
+- https://moderncprogramming.com/what-is-the-best-unit-testing-framework-in-c-for-you/
+- https://moderncprogramming.com/is-unit-testing-in-c-with-google-test-possible/
 
-## 5.1. Injection
+# 6. ChatGpt
+You can also start to ask ChatGpt to write  UT for you. Sometimes you will need to correct them but the result could be amazing:
+
+```c++
+
+#include <gtest/gtest.h>
+#include "Multiplier.h"
+
+TEST(MultiplierTest, ValidArguments)
+{
+    Multiplier multiplier;
+    double result = multiplier.invoke(2, 3);
+    EXPECT_DOUBLE_EQ(result, 6);
+}
+
+TEST(MultiplierTest, InvalidArgument)
+{
+    Multiplier multiplier;
+    EXPECT_THROW(multiplier.invoke(10, 3), std::invalid_argument);
+}
+```
+
+# 7. Exercises
+
+## 7.1. Injection
 
 Change this code using the code injection technique.
 
@@ -479,26 +517,26 @@ class CanServer
 
 ```
 
-## 5.2. The division class 
+## 7.2. The division class 
 - Complete the division class in `divisionlib` (take a look at the Multiplier class)
 - As input, the method invokes, can have only numbers > -30.
 - Add the unit test for the class. Be careful with the edge cases.
 
 The skeleton is in `testDivision.cpp`
 
-# 6. Testing complex objects
+# 8. Testing complex objects
 
 To test your complex class without the connected/related classes, you could use a mocking framework.
 Not always is possible to obtain the desired result, it depends mainly on how your code is written.
 If you are using dependency injection, the testability of the code is much better since you can inject mocks as well.
 
-## 6.1. MOCK
+## 8.1. MOCK
 A mock object implements the same interface as a real object (so it can be used as one), but lets you specify at run time how it will be used and what it should do (which methods will be called? in which order? how many times? with what arguments? what will they return? etc...).
 
 ![alt text](img/ut010.jpg)
 
 
-## 6.2. MOCK vs STUB
+## 8.2. MOCK vs STUB
 
 Mocking is a way to replace a dependency in a unit under test with a stand-in for that dependency. The stand-in allows the unit under test to be tested without invoking the real dependency. 
 
@@ -507,7 +545,7 @@ Mocking is a way to replace a dependency in a unit under test with a stand-in fo
 **Mocks**: Mocks are objects that register calls they receive. In test assertion, we can verify on Mocks that all expected actions were performed. A mock is like a stub but, the test will also verify that the object under test calls the mock as expected. Part of the test is verifying that the mock was used correctly.  
 Also, the mocks can be `programmed` to give certain result values or behaviours.
 
-## 6.3. How to
+## 8.3. How to
 We are using gmock which is the moking library for gtest.  
 
 When using gMock,
@@ -516,16 +554,16 @@ When using gMock,
 - next, you create some mock objects and specify their expectations and behaviour using an intuitive syntax.
 - then you exercise code that uses the mock objects. gMock will catch any violation of the expectations as soon as it arises.  
 
-## 6.4. Dependency injection.
+## 8.4. Dependency injection.
 
 Mocking needs dependency injection to work better.
 [See above](#33-modularize-your-code)
 
-## 6.5. Disclaimer
+## 8.5. Disclaimer
 This part of the course will be done by examples.
 
 
-## 6.6. Simple mock
+## 8.6. Simple mock
 First of all, you need to mock the class and method we do not want to test directly.
 ```c++
 class ...
@@ -536,25 +574,25 @@ class ...
 ```
 **CODE**: See test:testMultiplierFromFile.cpp
 
-## 6.7. Simple tests
+## 8.7. Simple tests
 
 **CODE**: See test:testMultiplierFromFile.cpp
 
-## 6.8. Test c std API
+## 8.8. Test c std API
 In this case, is necessary to write a class to overlap the c API.  
 See file: InterfaceForCApi.h
 
 **CODE**: See test:testMediaScanner.cpp
 
-## 6.9. Reference for gmock
+## 8.9. Reference for gmock
 http://google.github.io/googletest/gmock_cook_book.html
 
-# 7. Exercises              
+# 9. Exercises              
 
-## 7.1. Pwm
+## 9.1. Pwm
 Mock and write unit tests for `pwmlib`. You can find the skeleton in `testPwm.cpp`.
 
-# 8. GitPod
+# 10. GitPod
 How to:
 - Fork the [training repo](https://github.com/icub-tech-iit/training-programming-best-practices/blob/master/unittest-course-part/README.md)  
 ![alt](img/gitpod001.png)
@@ -578,7 +616,7 @@ cd /workspace/training-programming-best-practices/install/bin
 ./unittest
 ```
    
-# 9. Feedback
+# 11. Feedback
 
 For future training ...  
 Please send me feedback with all the critical points that can be done better and the things that are good.   

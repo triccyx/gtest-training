@@ -18,6 +18,7 @@ set(SOURCES gtest_main.cc
             testMediaScanner.cpp
             testDivision.cpp
             testMultiplierParamAndFixture.cpp
+            testMultiplier-c.cpp
             )
 
 set(CMAKE_EXE_LINKER_FLAGS  "-rdynamic")

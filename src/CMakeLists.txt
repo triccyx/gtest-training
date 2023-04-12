@@ -11,7 +11,7 @@
 
 cmake_minimum_required(VERSION 3.12)
 project(training
-        LANGUAGES CXX
+        LANGUAGES CXX C
         VERSION 0.1.0)
 
 include(FeatureSummary)

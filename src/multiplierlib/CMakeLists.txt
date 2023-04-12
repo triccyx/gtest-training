@@ -13,9 +13,11 @@ include(CMakePackageConfigHelpers)
 set(LIBRARY_TARGET_NAME multiplier)
 
 set(MultiplierSrc    Multiplier.cpp
+                     multiplier-c.cpp
                         )
 
 set(MultiplierHdr   Multiplier.h
+                    multiplier-c.h
                        )
 
 add_library(${LIBRARY_TARGET_NAME} STATIC ${MultiplierSrc} ${MultiplierHdr})
