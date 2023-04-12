@@ -7,19 +7,28 @@
 | **Class Max Size** | 10                               |
 | **Target**         | PhD students                     |
 
-# 1. Description
+# 1. Reading Note 
+This file can be read using
+- VisualStudio code
+- Markdown Preview Github Styling
+  
+Launch VS Code Quick Open (Ctrl+P), paste the following command, and press enter. 
+``` 
+ext install bierner.markdown-preview-github-styles
+```
+# 2. Description
 Increase code quality using unit tests via gtest and gmock.
 
-## 1.1. Main Topics
+## 2.1. Main Topics
 - Unit test introduction
 - How to unit test with gtest
 - What is moking?
 - How to mock with gmock
 
-## 1.2. When
+## 2.2. When
 End of April, if possible in presence.
 
-## 1.3. Prerequisite
+## 2.3. Prerequisite
 - Create a Github account (https://github.com/)
 - Create a Gitpod account (https://www.gitpod.io/) using Github credentials.
 - Install Chrome extension: https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki
@@ -36,17 +45,13 @@ End of April, if possible in presence.
 
 [What is Gitpod?](https://www.gitpod.io/docs/getting-started)
 
-Optional
-- Installed Gitpod Extension for Chrome
-(https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki)
-- Authorized Access
 
-## 1.4. Disclaimer
+## 2.4. Disclaimer
 Please note the following:
 - All in this document is copied from internet site and book
 - Do not pretend to remember the syntax, just remember that something can be done
 
-# 2. WHY UNIT TEST
+# 3. WHY UNIT TEST
 :question: So how can I test my software? `There are several ways to do that`.  
 
 UNIT TESTING is a type of software testing where individual units or components of the software are tested. The purpose is to validate that each unit of the software code performs as expected. Unit Testing is done during the development (coding phase) of an application by the developers. Unit Tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object.
@@ -56,7 +61,7 @@ UNIT TESTING is a type of software testing where individual units or components 
 
 
 :question: What are the advantages to write unit tests?  
-## 2.1. Early debug
+## 3.1. Early debug
 Unit tests help to fix bugs early in the development cycle and save costs.
 In this stage, the software is easier to debug:
 - It is smaller.
@@ -72,7 +77,7 @@ The head of the test group decided to take 20 philosophy graduates instead of en
 ___
 
 
-## 2.2. Avoid regressions so you can refactor your code
+## 3.2. Avoid regressions so you can refactor your code
 When you have a suite of unit tests, you can run it iteratively to ensure that everything keeps working correctly every time you add new functionality or introduce changes. This helps **refactoring** a lot.
 
 ![alt text](img/ut002.jpg)
@@ -88,19 +93,19 @@ When you have a suite of unit tests, you can run it iteratively to ensure that e
  Siemens in the end lost its client.  
 **The system does have not unit tests for non-regression purposes.**
 
-## 2.3. Document your code
+## 3.3. Document your code
 Running, debugging, or even just reading tests can give a lot of information about how the original code works, so you can use them as implicit documentation.  
 Note that in this way the code documentation is always updated (otherwise the code does not compile)
 
 ![alt text](img/ut003.jpeg)
 
-## 2.4. Unit testing improves code coverage 
+## 3.4. Unit testing improves code coverage 
 
 Unit testing helps to improve code coverage.  
 :question: What is test coverage?  
 It is a technique to ensure that your tests are testing your code or how much of your code you exercised by running the test. Are there code parts not tested?
 
-## 2.5. Unit Testing Myth
+## 3.5. Unit Testing Myth
 - It requires time, and I am always overscheduled
 My code is rock solid! I do not need unit tests.
 - Programmers think that Integration Testing will catch all errors and do not execute the unit test. Once units are integrated, very simple errors which could have been very easily found and fixed in units test take a very long time to be traced and fixed.
@@ -109,9 +114,9 @@ The truth is Unit testing increases the speed of development.
 
 ![alt text](img/ut001.png)
 
-# 3. HOW TO UNIT TEST
+# 4. HOW TO UNIT TEST
 
-## 3.1. Good practices for unit testing include
+## 4.1. Good practices for unit testing include
 - Creating tests for all **publicly exposed** functions, including class constructors and operators.
 - Covering all code paths and checking both trivial and **edge cases**, including those with incorrect input data (negative testing).
 - Assuring that each test works independently and does not prevent other tests from execution.
@@ -119,7 +124,7 @@ The truth is Unit testing increases the speed of development.
 
 ![alt text](img/ut005.jpg)
 
-## 3.2. A single test
+## 4.2. A single test
 A single unit test is a method that checks some specific functionality and has clear pass/fail criteria. The generalized structure of a single test looks like this:
 
 Test (TestGroupName, TestName)   {
@@ -129,7 +134,7 @@ Test (TestGroupName, TestName)   {
 }
 
 
-## 3.3. Modularize your code
+## 4.3. Modularize your code
 As code's testability depends on its design, unit tests facilitate breaking it into specialized easy-to-test pieces.
 An easy way to do this is to use self-consistent classes.  
 Another useful technique is the so-called **dependence injection**.
@@ -192,13 +197,13 @@ The use of the inheritance technique tightly couples parent class with child cla
 ![alt text](img/ut007.png)
 
 
-## 3.4. Reference for Unittest
+## 4.4. Reference for Unittest
 - https://www.jetbrains.com/help/clion/unit-testing-tutorial.html#basics  
 - https://www.guru99.com/unit-testing-guide.html  
 - Test coverage: https://www.guru99.com/test-coverage-in-software-testing.html#1
 - https://betterprogramming.pub/13-tips-for-writing-useful-unit-tests-ca20706b5368
 
-# 4. GTEST
+# 5. GTEST
 googletest is a testing framework developed by the Testing Technology team with Google’s specific requirements and constraints in mind. Whether you work on Linux, Windows, or a Mac.
 - very well done
 - very well supported
@@ -206,7 +211,7 @@ googletest is a testing framework developed by the Testing Technology team with 
 - visual studio code friend
 - cross-platform
 
-## 4.1. The tests are simple
+## 5.1. The tests are simple
 
 ```c++
 TEST(Multiplier, check_multiply_001)
@@ -218,11 +223,11 @@ TEST(Multiplier, check_multiply_001)
 
 **CODE**: See code:multiplierlib and test:testMultiplier.cpp
 
-## 4.2. Small important details
+## 5.2. Small important details
 
 ![alt text](img/ut008.png)
 
-### 4.2.1. Expected and current order
+### 5.2.1. Expected and current order
 This is only a note to remember to correctly order the expected and current values.
 ```c++
     EXPECT_EQ(8/*expected*/, mult.invoke(4, 2)/*current*/);
@@ -238,7 +243,7 @@ Expected equality of these values:
 [  FAILED  ] Multiplier.Test_simple001 (0 ms)
 ```
 
-### 4.2.2. Name
+### 5.2.2. Name
 
 Choose good names for tests, see for reference:https://dev.to/canro91/unit-testing-best-practices-6-tips-for-better-names-524m.
 
@@ -257,7 +262,7 @@ By Joel:
 the infamous Hungarian naming convention:  
 https://www.joelonsoftware.com/2005/05/11/making-wrong-code-look-wrong/
 
-### 4.2.3. Test in code
+### 5.2.3. Test in code
 
 Don't mix test code with production code (never):
 
@@ -282,11 +287,11 @@ class WinterAssistant {
 ```
 In this case, you can use easily the code injection technique.
 
-### 4.2.4. Run Your Tests as Part of Every Automated Build
+### 5.2.4. Run Your Tests as Part of Every Automated Build
 
 Just as you should be running your tests as you develop, they should also be an integral part of your continuous integration process. A failed test should mean that your build is broken.
 
-### 4.2.5. Keep test code simple
+### 5.2.5. Keep test code simple
 
 Avoid in test, when possible:
 - for loop
@@ -294,7 +299,7 @@ Avoid in test, when possible:
 - function call (excluding the tested function of course)
 - ...
 
-## 4.3. Check macro
+## 5.3. Check macro
 Other EXPECT and ASSERT macro exist:  
 ```c++
 EXPECT_TRUE
@@ -316,7 +321,7 @@ See also:
 https://github.com/google/googletest/blob/main/docs/reference/assertions.md
 
 
-## 4.4. Check fatal/non-fatal macro
+## 5.4. Check fatal/non-fatal macro
 ASSERT vs EXPECT  
 ```c++
     EXPECT_EQ(8/*expected*/, mult.invoke(4, 2)/*current*/
@@ -325,17 +330,17 @@ ASSERT vs EXPECT
 Assert abort the current test while Expect gives only the error but goes on.
 Expect is preferred.
 
-## 4.5. Test with Fixtures
+## 5.5. Test with Fixtures
 If you find yourself writing two or more tests that operate on similar data, you can use a test fixture. This allows you to reuse the same configuration of objects for several different tests.
 
 
 **CODE**: See test:testMultiplierParamAndFixture.cpp
 
-## 4.6. Test with Parameters
+## 5.6. Test with Parameters
 
 **CODE**: See code:multiplierlib and   test:testMultiplierParamAndFixture.cpp
 
-## 4.7. Test private members
+## 5.7. Test private members
 
 For testing private members we can use one of the C++ `most hidden` features.
 It is possible to change visibility over inherited members.
@@ -359,7 +364,7 @@ The only prerequisite is that the method should be `virtual`.
 
 **CODE**: See code:multiplierlib and test:testMultiplierInternal.cpp
 
-## 4.8. Test exceptions
+## 5.8. Test exceptions
 Also thrown exceptions can be tested.
 ```c++
 EXPECT_THROW(mult.invoke(10, 2), std::invalid_argument);
@@ -367,7 +372,7 @@ EXPECT_THROW(mult.invoke(10, 2), std::invalid_argument);
 
 **CODE**: See code:multiplierlib and test:testMultiplier.cpp
 
-## 4.9. Test death
+## 5.9. Test death
 
 If we expect that a function closes the program with an error that contains "must be true".
 
@@ -396,7 +401,7 @@ TEST(MyDeathTest, KillProcess)
 }
 ```
 
-## 4.10. The main
+## 5.10. The main
 Quite easy to write:
 ```c++
 #include "gtest/gtest.h"
@@ -416,7 +421,7 @@ or you can use a wildcard:
    ::testing::GTEST_FLAG(filter) = "Test.T*";
 ```
 
-## 4.11. Visual studio code
+## 5.11. Visual studio code
 VC is perfectly integrated with gtest, install the test explorer extension see:  
 https://marketplace.visualstudio.com/items?itemName=matepek.vscode-catch2-test-adapter
 
@@ -431,7 +436,7 @@ testMate.cpp.test.executables": "${workspaceFolder}/install/bin/unittest"
 ```
 With your install path.
 
-## 4.12. How to cmake
+## 5.12. How to cmake
 
 ```cmake
 include(FetchContent)
@@ -441,22 +446,22 @@ FetchContent_Declare(
 )
 ```
 
-## 4.13. References for gtest
+## 5.13. References for gtest
 https://google.github.io/googletest/primer.html
 
-# 5. Unit Testing C code
+# 6. Unit Testing C code
 Is it possible UT for the C code? Yes, it is possible and it is widely done.
 There are some limitations to using gtest with C code.
 -  You cannot create an instance of the code under test
 -  You should take care of the initialization
 
 **CODE**: See code:multiplierlib and test:testMultiplier-c.cpp
-## 5.1. Reference
+## 6.1. Reference
 Refer to:  
 - https://moderncprogramming.com/what-is-the-best-unit-testing-framework-in-c-for-you/
 - https://moderncprogramming.com/is-unit-testing-in-c-with-google-test-possible/
 
-# 6. ChatGpt
+# 7. ChatGpt
 You can also start to ask ChatGpt to write  UT for you. Sometimes you will need to correct them but the result could be amazing:
 
 ```c++
@@ -478,9 +483,9 @@ TEST(MultiplierTest, InvalidArgument)
 }
 ```
 
-# 7. Exercises
+# 8. Exercises
 
-## 7.1. Injection
+## 8.1. Injection
 
 Change this code using the code injection technique.
 
@@ -517,26 +522,26 @@ class CanServer
 
 ```
 
-## 7.2. The division class 
+## 8.2. The division class 
 - Complete the division class in `divisionlib` (take a look at the Multiplier class)
 - As input, the method invokes, can have only numbers > -30.
 - Add the unit test for the class. Be careful with the edge cases.
 
 The skeleton is in `testDivision.cpp`
 
-# 8. Testing complex objects
+# 9. Testing complex objects
 
 To test your complex class without the connected/related classes, you could use a mocking framework.
 Not always is possible to obtain the desired result, it depends mainly on how your code is written.
 If you are using dependency injection, the testability of the code is much better since you can inject mocks as well.
 
-## 8.1. MOCK
+## 9.1. MOCK
 A mock object implements the same interface as a real object (so it can be used as one), but lets you specify at run time how it will be used and what it should do (which methods will be called? in which order? how many times? with what arguments? what will they return? etc...).
 
 ![alt text](img/ut010.jpg)
 
 
-## 8.2. MOCK vs STUB
+## 9.2. MOCK vs STUB
 
 Mocking is a way to replace a dependency in a unit under test with a stand-in for that dependency. The stand-in allows the unit under test to be tested without invoking the real dependency. 
 
@@ -545,7 +550,7 @@ Mocking is a way to replace a dependency in a unit under test with a stand-in fo
 **Mocks**: Mocks are objects that register calls they receive. In test assertion, we can verify on Mocks that all expected actions were performed. A mock is like a stub but, the test will also verify that the object under test calls the mock as expected. Part of the test is verifying that the mock was used correctly.  
 Also, the mocks can be `programmed` to give certain result values or behaviours.
 
-## 8.3. How to
+## 9.3. How to
 We are using gmock which is the moking library for gtest.  
 
 When using gMock,
@@ -554,16 +559,16 @@ When using gMock,
 - next, you create some mock objects and specify their expectations and behaviour using an intuitive syntax.
 - then you exercise code that uses the mock objects. gMock will catch any violation of the expectations as soon as it arises.  
 
-## 8.4. Dependency injection.
+## 9.4. Dependency injection.
 
 Mocking needs dependency injection to work better.
 [See above](#33-modularize-your-code)
 
-## 8.5. Disclaimer
+## 9.5. Disclaimer
 This part of the course will be done by examples.
 
 
-## 8.6. Simple mock
+## 9.6. Simple mock
 First of all, you need to mock the class and method we do not want to test directly.
 ```c++
 class ...
@@ -574,25 +579,25 @@ class ...
 ```
 **CODE**: See test:testMultiplierFromFile.cpp
 
-## 8.7. Simple tests
+## 9.7. Simple tests
 
 **CODE**: See test:testMultiplierFromFile.cpp
 
-## 8.8. Test c std API
+## 9.8. Test c std API
 In this case, is necessary to write a class to overlap the c API.  
 See file: InterfaceForCApi.h
 
 **CODE**: See test:testMediaScanner.cpp
 
-## 8.9. Reference for gmock
+## 9.9. Reference for gmock
 http://google.github.io/googletest/gmock_cook_book.html
 
-# 9. Exercises              
+# 10. Exercises              
 
-## 9.1. Pwm
+## 10.1. Pwm
 Mock and write unit tests for `pwmlib`. You can find the skeleton in `testPwm.cpp`.
 
-# 10. GitPod
+# 11. GitPod
 How to:
 - Fork the [training repo](https://github.com/icub-tech-iit/training-programming-best-practices/blob/master/unittest-course-part/README.md)  
 ![alt](img/gitpod001.png)
@@ -616,7 +621,7 @@ cd /workspace/training-programming-best-practices/install/bin
 ./unittest
 ```
    
-# 11. Feedback
+# 12. Feedback
 
 For future training ...  
 Please send me feedback with all the critical points that can be done better and the things that are good.   
