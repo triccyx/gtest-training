@@ -8,7 +8,7 @@
 | **Target**         | PhD students                     |
 
 # 1. Description
-Increase code quality using unit test via gtest and gmock.
+Increase code quality using unit tests via gtest and gmock.
 
 ## 1.1. Main Topics
 - Unit test introduction
@@ -20,8 +20,8 @@ Increase code quality using unit test via gtest and gmock.
 End of March, if possible in presence.
 
 ## 1.3. Prerequisite
-- Create Github account (https://github.com/)
-- Create Gitpod account (https://www.gitpod.io/) using github credentials.
+- Create a Github account (https://github.com/)
+- Create a Gitpod account (https://www.gitpod.io/) using Github credentials.
 - Install Chrome extension: https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki
 - Fork this repository:  
     go to [this repo](https://github.com/triccyx/gtest-training)  
@@ -53,15 +53,15 @@ UNIT TESTING is a type of software testing where individual units or components 
 :question: What are the advantages to write unit tests?  
 ## 2.1. Early debug
 Unit tests help to fix bugs early in the development cycle and save costs.
-In this stage the software is easier to debug:
+In this stage, the software is easier to debug:
 - It is smaller.
-- It is less interdependent to others parts.
+- It is less interdependent on other parts.
 
 ___
 :pushpin: **Marconi's approach to software testing (2004).**  
 Marconi was a large company that developed a particular mobile phone technology called TETRA. It was a kind of GSM / UMTS / 4G mobile phone network for police and military forces.  
 They had created a test group in Florence with about 20 telecommunications engineers, but they had poor results.  
-The head of the test group decided to take 20 philosophy graduates instead of engineers. I was among the ones that developed the TETRA, I was there in that mess.  In the beginning, the so-called monkey tests were an incredible success. Bug after bugs, but... as the testers were not technicians they report on the tests were almost impossible to reproduce. So in the end, the 20 philosophy graduates went back to their studies.  
+The head of the test group decided to take 20 philosophy graduates instead of engineers. I was among the ones that developed the TETRA, I was there in that mess.  In the beginning, the so-called monkey tests were an incredible success. Bug after bug, but... as the testers were not technicians they report on the tests were almost impossible to reproduce. So in the end, the 20 philosophy graduates went back to their studies.  
 <img src="img/marconi.jpg" width="400"/>  
 **The system was simply too complex to be tested all together.**
 ___
@@ -81,7 +81,7 @@ When you have a suite of unit tests, you can run it iteratively to ensure that e
  The company wanted always new features, very well paid. Siemens was releasing new versions one after the other testing only the new features.
  A simple bug due to the addition of a new feature, but in a very old and important part of the code, stopped two factories for 1 week.  
  Siemens in the end lost its client.  
-**The system have not unit tests for non regression purpose.**
+**The system does have not unit tests for non-regression purposes.**
 
 ## 2.3. Document your code
 Running, debugging, or even just reading tests can give a lot of information about how the original code works, so you can use them as implicit documentation.  
@@ -98,9 +98,9 @@ It is a technique to ensure that your tests are testing your code or how much of
 ## 2.5. Unit Testing Myth
 - It requires time, and I am always overscheduled
 My code is rock solid! I do not need unit tests.
-- Programmers think that Integration Testing will catch all errors and do not execute the unit test. Once units are integrated, very simple errors which could have been very easily found and fixed in unit tested take a very long time to be traced and fixed.
+- Programmers think that Integration Testing will catch all errors and do not execute the unit test. Once units are integrated, very simple errors which could have been very easily found and fixed in units test take a very long time to be traced and fixed.
 
-The truth is Unit testing increase the speed of development.
+The truth is Unit testing increases the speed of development.
 
 ![alt text](img/ut001.png)
 
@@ -211,14 +211,14 @@ TEST(Multiplier, check_multiply_001)
 }
 ```
 
-**CODE**: See test:testMultiplier.cpp
+**CODE**: See code:multiplierlib and test:testMultiplier.cpp
 
 ## 4.2. Small important details
 
 ![alt text](img/ut008.png)
 
 ### 4.2.1. Expected and current order
-This is only a note to remember to correctly order the expected and current value.
+This is only a note to remember to correctly order the expected and current values.
 ```c++
     EXPECT_EQ(8/*expected*/, mult.invoke(4, 2)/*current*/);
 ```
@@ -281,6 +281,14 @@ In this case, you can use easily the code injection technique.
 
 Just as you should be running your tests as you develop, they should also be an integral part of your continuous integration process. A failed test should mean that your build is broken.
 
+### 4.2.5. Keep test code simple
+
+Avoid in test, when possible:
+- for loop
+- if/case statement
+- function call (excluding the tested function of course)
+- ...
+
 ## 4.3. Check macro
 Other EXPECT and ASSERT macro exist:  
 ```c++
@@ -303,7 +311,7 @@ See also:
 https://github.com/google/googletest/blob/main/docs/reference/assertions.md
 
 
-## 4.4. Check fatal/non fatal macro
+## 4.4. Check fatal/non-fatal macro
 ASSERT vs EXPECT  
 ```c++
     EXPECT_EQ(8/*expected*/, mult.invoke(4, 2)/*current*/
@@ -320,11 +328,11 @@ If you find yourself writing two or more tests that operate on similar data, you
 
 ## 4.6. Test with parameters
 
-**CODE**: See test:testMultiplierParamAndFixture.cpp
+**CODE**: See code:multiplierlib and   test:testMultiplierParamAndFixture.cpp
 
 ## 4.7. Test private members
 
-For testing private members we can use one of the c++ `most hidden` features.
+For testing private members we can use one of the C++ `most hidden` features.
 It is possible to change visibility over inherited members.
 
 ```c++
@@ -344,7 +352,7 @@ class TestMultiplier : public Multiplier
 
 The only prerequisite is that the method should be `virtual`.
 
-**CODE**: See test:testMultiplierInternal.cpp
+**CODE**: See code:multiplierlib and test:testMultiplierInternal.cpp
 
 ## 4.8. Test exceptions
 Also thrown exceptions can be tested.
@@ -352,7 +360,7 @@ Also thrown exceptions can be tested.
 EXPECT_THROW(mult.invoke(10, 2), std::invalid_argument);
 ```
 
-**CODE**: See test:testMultiplier.cpp
+**CODE**: See code:multiplierlib and test:testMultiplier.cpp
 
 ## 4.9. Test death
 
@@ -374,7 +382,7 @@ TEST(MyDeathTest, NormalExit)
 }
 ```
 
-Exit due to a signal and an error that match "Sending myself unblockable signal"
+Exit due to a signal and an error that matches "Sending myself unblockable signal"
 
 ```c++
 TEST(MyDeathTest, KillProcess) 
@@ -398,7 +406,7 @@ For filtering the tests add:
 ```c++
    ::testing::GTEST_FLAG(filter) = "Test.Test_003";
 ```
-or you can use wildcard:
+or you can use a wildcard:
 ```c++
    ::testing::GTEST_FLAG(filter) = "Test.T*";
 ```
@@ -472,7 +480,7 @@ class CanServer
 ```
 
 ## 5.2. The division class 
-- Complete the division class im `divisionlib` (take a look at the Multiplier class)
+- Complete the division class in `divisionlib` (take a look at the Multiplier class)
 - As input, the method invokes, can have only numbers > -30.
 - Add the unit test for the class. Be careful with the edge cases.
 
@@ -513,7 +521,7 @@ When using gMock,
 Mocking needs dependency injection to work better.
 [See above](#33-modularize-your-code)
 
-## 6.5. Disclaimed
+## 6.5. Disclaimer
 This part of the course will be done by examples.
 
 
@@ -550,12 +558,12 @@ Mock and write unit tests for `pwmlib`. You can find the skeleton in `testPwm.cp
 How to:
 - Fork the [training repo](https://github.com/icub-tech-iit/training-programming-best-practices/blob/master/unittest-course-part/README.md)  
 ![alt](img/gitpod001.png)
-- Only for Visual Studio Code users. Install extension on Visual Studio Code. This step is not mandatory.  
+- Only for Visual Studio Code users. Install the extension on Visual Studio Code. This step is not mandatory.  
 ![alt](img/gitpod002.png)
-- Enter GitPod with the button (the first time it will take 5minutes).  
+- Enter GitPod with the button (the first time it will take 5 minutes).  
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
-- Create build folder, create makefile and compile
+- Create a build folder, create a makefile and compile
   ```bash
   cd /workspace/training-programming-best-practices/src
   mkdir build
@@ -573,5 +581,5 @@ cd /workspace/training-programming-best-practices/install/bin
 # 9. Feedback
 
 For future training ...  
-Please send me a feedback with all the critical points that can be done better and the things that are good.   
+Please send me feedback with all the critical points that can be done better and the things that are good.   
 Luca.tricerri@gru.bitron-ind.com

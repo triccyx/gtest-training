@@ -1,11 +1,12 @@
 ################################################################################
 #                                                                              #
-# Copyright (C) 2021 Fondazione Istitito Italiano di Tecnologia (IIT)          #
+# Copyright (C) 2023 Luca Tricerri                                                                           
+                                        #
 # All Rights Reserved.                                                         #
 #                                                                              #
 ################################################################################
 
-# @author Luca Tricerri <luca.tricerri@iit.it>
+# @author Luca Tricerri <triccyx@gmail.com>
 
 
 cmake_minimum_required(VERSION 3.12)

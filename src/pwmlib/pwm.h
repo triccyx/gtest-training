@@ -1,7 +1,7 @@
 
 /******************************************************************************
  *                                                                            *
- * Copyright (C) 2021 Fondazione Istituto Italiano di Tecnologia (IIT)        *
+ * Copyright (C) 2023 Luca Tricerri        *
  * All Rights Reserved.                                                       *
  *                                                                            *
  ******************************************************************************/
