@@ -1,12 +1,12 @@
 /******************************************************************************
  *                                                                            *
- * Copyright (C) 2023 Luca Tricerri        *
+ * Copyright (C) 2023 Luca Tricerri                                           *
  * All Rights Reserved.                                                       *
  *                                                                            *
  ******************************************************************************/
 
 /**
- * @luca.triceri@iit.it
+ * @triccyx@gmail.com
  */
 
 #include "gmock/gmock.h"
@@ -37,6 +37,5 @@ TEST(MotorFile, Test_base_001)
 
 	EXPECT_CALL(motor, apply(20)).Times(1);
 
-    pwm.applyPwmToMotor(20);
-
+	pwm.applyPwmToMotor(20);
 }

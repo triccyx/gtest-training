@@ -1,12 +1,12 @@
 /******************************************************************************
  *                                                                            *
- * Copyright (C) 2023 Luca Tricerri        *
+ * Copyright (C) 2023 Luca Tricerri                                           *
  * All Rights Reserved.                                                       *
  *                                                                            *
  ******************************************************************************/
 
 /**
- * @luca.triceri@iit.it
+ * @triccyx@gmail.com
  */
 
 #include "MultiplierFromFile.h"
@@ -41,7 +41,7 @@ TEST(MultiplierFromFile, expect_call_base_001)
 	EXPECT_CALL(mult, getDataFromFile(1));
 	EXPECT_CALL(mult, getDataFromFile(2));
 
-	//The test
+	// The test
 	mult.invoke(1, 2);
 }
 
@@ -52,7 +52,7 @@ TEST(MultiplierFromFile, expect_call_times_001)
 	EXPECT_CALL(mult, getDataFromFile(1)).Times(1);
 	EXPECT_CALL(mult, getDataFromFile(2)).Times(1);
 
-	//The test
+	// The test
 	mult.invoke(1, 2);
 }
 
@@ -90,14 +90,14 @@ TEST(MultiplierFromFile, expect_call_match_003)
 	EXPECT_CALL(mult, getDataFromFile(Gt(100))).Times(1);
 	EXPECT_CALL(mult, getDataFromFile(Lt(100))).Times(1);
 
-	mult.invoke( 2,1010);
+	mult.invoke(2, 1010);
 }
 
 TEST(MultiplierFromFile, expect_call_sequence_001)
 {
 	MultiplierFromFile_Mock mult("myFileName");
 
-	//Sequence
+	// Sequence
 	InSequence s;
 	EXPECT_CALL(mult, getDataFromFile(1)).Times(1);
 	EXPECT_CALL(mult, getDataFromFile(2)).Times(1);
@@ -124,28 +124,27 @@ TEST(MultiplierFromFile, expect_call_return_002)
 	EXPECT_EQ(81, mult.invoke(1, 2));
 }
 
-//More advanced
+// More advanced
 
 TEST(MultiplierFromFile, expect_call_returnparam_001)
 {
 	MultiplierFromFile_Mock mult("myFileName");
 
-	double value=5;
-	EXPECT_CALL(mult, getDataFromFile(_, An<double &>())).WillRepeatedly(DoAll(SetArgReferee<1>(5),Return(5)));
-	//used method double getDataFromFile(unsigned int index, double& out) const
+	double value = 5;
+	EXPECT_CALL(mult, getDataFromFile(_, An<double &>())).WillRepeatedly(DoAll(SetArgReferee<1>(5), Return(5)));
+	// used method double getDataFromFile(unsigned int index, double& out) const
 
-	EXPECT_EQ(25, mult.invoke2(1, 2));//Reference version
+	EXPECT_EQ(25, mult.invoke2(1, 2));	// Reference version
 }
 
 TEST(MultiplierFromFile, expect_call_returnparam_002)
 {
 	MultiplierFromFile_Mock mult("myFileName");
 
-
 	EXPECT_CALL(mult, getDataFromFile(1, An<double &>())).WillOnce(DoAll(SetArgReferee<1>(5), Return(5)));
 	EXPECT_CALL(mult, getDataFromFile(2, An<double &>())).WillOnce(DoAll(SetArgReferee<1>(5), Return(5)));
 
-	EXPECT_EQ(25,mult.invoke2(1, 2));//Reference version
+	EXPECT_EQ(25, mult.invoke2(1, 2));	// Reference version
 }
 
 TEST(MultiplierFromFile, expect_call_returnparam_003)
@@ -154,18 +153,15 @@ TEST(MultiplierFromFile, expect_call_returnparam_003)
 
 	EXPECT_CALL(mult, getDataFromFile(_, An<double &>())).WillRepeatedly(DoAll(SetArgReferee<1>(5), Return(5)));
 
-	EXPECT_EQ(25,mult.invoke2(1, 2));//Reference version
+	EXPECT_EQ(25, mult.invoke2(1, 2));	// Reference version
 }
-
 
 TEST(MultiplierFromFile, Test_returnparam_004)
 {
 	MultiplierFromFile_Mock mult("myFileName");
 
-	EXPECT_CALL(mult, getDataFromFile(_,An<double*>())).WillRepeatedly(DoAll(SetArgPointee<1>(5),Return(5)));
+	EXPECT_CALL(mult, getDataFromFile(_, An<double *>())).WillRepeatedly(DoAll(SetArgPointee<1>(5), Return(5)));
 	////used method double getDataFromFile(unsigned int index, double* out) const
 
-	EXPECT_EQ(25,mult.invoke3(1, 2));//Pointer version
-
+	EXPECT_EQ(25, mult.invoke3(1, 2));	// Pointer version
 }
-

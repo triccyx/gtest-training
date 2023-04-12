@@ -1,12 +1,12 @@
 /******************************************************************************
  *                                                                            *
- * Copyright (C) 2023 Luca Tricerri        *
+ * Copyright (C) 2023 Luca Tricerri                                           *
  * All Rights Reserved.                                                       *
  *                                                                            *
  ******************************************************************************/
 
 /**
- * @luca.triceri@iit.it
+ * @triccyx@gmail.com
  */
 
 #include "pwm.h"
@@ -18,7 +18,7 @@ Pwm::Pwm(Motor& motor, int minAnalogValue, int maxAnalogValue, int minPwmPercent
 
 double Pwm::calculatePwmFromPercent(unsigned int pwmPercent) const
 {
-	double pwmValue=(double)(pwmPercent-minPwmPercent_)*(double)(maxAnalogValue_-minAnalogValue_)/(double)(maxPwmPercent_-minPwmPercent_)+(double)minAnalogValue_;
+	double pwmValue = (double)(pwmPercent - minPwmPercent_) * (double)(maxAnalogValue_ - minAnalogValue_) / (double)(maxPwmPercent_ - minPwmPercent_) + (double)minAnalogValue_;
 	pwmLimit(pwmValue);
 	return pwmValue;
 }
@@ -36,4 +36,3 @@ bool Pwm::applyPwmToMotor(double pwm) const
 {
 	return motor_.apply(pwm);
 }
-

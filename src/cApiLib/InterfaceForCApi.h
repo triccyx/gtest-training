@@ -32,7 +32,8 @@
 #include <unistd.h>
 
 struct udev
-{};
+{
+};
 
 // Wraper for unittest use of c style API
 class InterfaceForCApi
@@ -40,15 +41,15 @@ class InterfaceForCApi
    public:
 	virtual int open_c(const char *path, int oflag)
 	{
-		return open(path, oflag);//Linux API
+		return open(path, oflag);  // Linux API
 	}
 
 	virtual struct udev *udev_new_c()
 	{
-		return udev_new();//Linux API
+		return udev_new();	// Linux API
 	}
 
-    //...
-	
+	//...
+
 	virtual ~InterfaceForCApi(){};
 };

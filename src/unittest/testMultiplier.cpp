@@ -1,12 +1,12 @@
 /******************************************************************************
  *                                                                            *
- * Copyright (C) 2023 Luca Tricerri        *
+ * Copyright (C) 2023 Luca Tricerri                                           *
  * All Rights Reserved.                                                       *
  *                                                                            *
  ******************************************************************************/
 
 /**
- * @luca.triceri@iit.it
+ * @triccyx@gmail.com
  */
 
 #include <tuple>
@@ -30,7 +30,6 @@ TEST(Multiplier, multiply_check_positive_edge_001)
 	EXPECT_EQ(0, mult.invoke(1, 0));
 	EXPECT_EQ(0, mult.invoke(0, 1));
 }
-
 
 TEST(Multiplier, multiply_check_negative_001)
 {
@@ -58,5 +57,3 @@ TEST(Multiplier, exception_thrown)
 	Multiplier mult;
 	EXPECT_THROW(mult.invoke(10, 2), std::invalid_argument);
 }
-
-

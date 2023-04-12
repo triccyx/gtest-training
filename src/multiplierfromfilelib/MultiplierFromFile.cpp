@@ -1,12 +1,12 @@
 /******************************************************************************
  *                                                                            *
- * Copyright (C) 2023 Luca Tricerri        *
+ * Copyright (C) 2023 Luca Tricerri                                           *
  * All Rights Reserved.                                                       *
  *                                                                            *
  ******************************************************************************/
 
 /**
- * @luca.triceri@iit.it
+ * @triccyx@gmail.com
  */
 
 #include "MultiplierFromFile.h"
@@ -17,38 +17,36 @@
 
 double MultiplierFromFile::invoke(unsigned int leftIndex, unsigned int rightIndex) const
 {
-	double a=getDataFromFile(leftIndex);
-	double b=getDataFromFile(rightIndex);
+	double a = getDataFromFile(leftIndex);
+	double b = getDataFromFile(rightIndex);
 	//..Algorithm based on value of a and b
 	//...
-	return a*b;
+	return a * b;
 }
 
 double MultiplierFromFile::invoke2(unsigned int leftIndex, unsigned int rightIndex) const
 {
 	double out1;
 	double out2;
-	getDataFromFile(leftIndex,out1);
-	getDataFromFile(rightIndex,out2);
+	getDataFromFile(leftIndex, out1);
+	getDataFromFile(rightIndex, out2);
 	return out1 * out2;
 }
 
 double MultiplierFromFile::invoke3(unsigned int leftIndex, unsigned int rightIndex) const
 {
-	double out1,out2;
-	getDataFromFile(leftIndex,&out1);
-	getDataFromFile(rightIndex,&out2);
+	double out1, out2;
+	getDataFromFile(leftIndex, &out1);
+	getDataFromFile(rightIndex, &out2);
 	return out1 * out2;
-
 }
 
 double MultiplierFromFile::getDataFromFile(unsigned int index) const
 {
 	std::ifstream ifs(fileName_);
-	//go to line by index
+	// go to line by index
 	std::string s;
-	for (int i = 0; i <= index; i++)
-        std::getline(ifs, s);
+	for (int i = 0; i <= index; i++) std::getline(ifs, s);
 	//...
 	double out;
 	ifs >> out;
@@ -58,10 +56,9 @@ double MultiplierFromFile::getDataFromFile(unsigned int index) const
 double MultiplierFromFile::getDataFromFile(unsigned int index, double* out) const
 {
 	std::ifstream ifs(fileName_);
-	//go to line by index
+	// go to line by index
 	std::string s;
-	for (int i = 0; i <= index; i++)
-        std::getline(ifs, s);
+	for (int i = 0; i <= index; i++) std::getline(ifs, s);
 	//...
 	double outFromFile;
 	ifs >> outFromFile;
@@ -72,10 +69,9 @@ double MultiplierFromFile::getDataFromFile(unsigned int index, double* out) cons
 double MultiplierFromFile::getDataFromFile(unsigned int index, double& out) const
 {
 	std::ifstream ifs(fileName_);
-	//go to line by index
+	// go to line by index
 	std::string s;
-	for (int i = 1; i < index; i++)
-        std::getline(ifs, s);
+	for (int i = 1; i < index; i++) std::getline(ifs, s);
 	//...
 	double outFromFile;
 	ifs >> outFromFile;

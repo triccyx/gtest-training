@@ -1,12 +1,12 @@
 /******************************************************************************
  *                                                                            *
- * Copyright (C) 2023 Luca Tricerri        *
+ * Copyright (C) 2023 Luca Tricerri                                           *
  * All Rights Reserved.                                                       *
  *                                                                            *
  ******************************************************************************/
 
 /**
- * @luca.triceri@iit.it
+ * @triccyx@gmail.com
  */
 
 #include "gmock/gmock.h"
@@ -25,7 +25,7 @@ using ::testing::TypedEq;
 
 class Motor_Mock : public Motor
 {
-   //...
+	//...
 };
 
 TEST(MotorFile, Test_base_001)
@@ -33,5 +33,4 @@ TEST(MotorFile, Test_base_001)
 	Motor_Mock motor;
 
 	//...
-
 }

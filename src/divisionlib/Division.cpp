@@ -6,10 +6,11 @@
  ******************************************************************************/
 
 /**
- * @luca.triceri@iit.it
+ * @triccyx@gmail.com
  */
 
 #include "Division.h"
+
 #include <stdexcept>
 
 double Division::invoke(double left, double right) const

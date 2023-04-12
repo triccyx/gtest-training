@@ -1,25 +1,24 @@
 
 /******************************************************************************
  *                                                                            *
- * Copyright (C) 2023 Luca Tricerri        *
+ * Copyright (C) 2023 Luca Tricerri                                           *
  * All Rights Reserved.                                                       *
  *                                                                            *
  ******************************************************************************/
 
 /**
- * @luca.triceri@iit.it
+ * @triccyx@gmail.com
  */
-
 
 #pragma once
 
-//interface to motor
+// interface to motor
 class Motor
 {
    public:
 	virtual bool apply(double pwm) const
 	{
-        //...
+		//...
 		return true;
 	};
 };

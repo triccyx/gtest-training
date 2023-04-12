@@ -1,12 +1,12 @@
 /******************************************************************************
  *                                                                            *
- * Copyright (C) 2023 Luca Tricerri        *
+ * Copyright (C) 2023 Luca Tricerri                                           *
  * All Rights Reserved.                                                       *
  *                                                                            *
  ******************************************************************************/
 
 /**
- * @luca.triceri@iit.it
+ * @triccyx@gmail.com
  */
 
 #include <tuple>
@@ -32,7 +32,7 @@ class MultiplierTest : public ::testing::Test
 	Multiplier mult_;
 };
 
-TEST_F(MultiplierTest, feature_with_setup)
+TEST_F(MultiplierTest/*fixture class name*/, feature_with_setup)
 {
 	EXPECT_EQ(2, mult_.invoke(1, 2));
 }
@@ -57,7 +57,7 @@ class MultiplierParamIntTest : public ::testing::TestWithParam<int>
 
 INSTANTIATE_TEST_CASE_P(WithParamSingle, MultiplierParamIntTest, ::testing::Values(1, 1, 1, 1));
 
-TEST_P(MultiplierParamIntTest, param_integer_001)
+TEST_P(MultiplierParamIntTest/*fixture class name*/, param_integer_001)
 {
 	int tmp = GetParam();
 	EXPECT_EQ(2, mult_.invoke(tmp, 2));
@@ -71,13 +71,12 @@ class MultiplierParamTupleTest : public ::testing::TestWithParam<std::tuple<int,
 	Multiplier mult_;
 };
 
-INSTANTIATE_TEST_CASE_P(WithParamMultiple, MultiplierParamTupleTest, ::testing::Values(std::make_tuple(1, 2, 2), 
-																					   std::make_tuple(2, 4, 8), std::make_tuple(3, 6, 18)));
+INSTANTIATE_TEST_CASE_P(WithParamMultiple, MultiplierParamTupleTest, ::testing::Values(std::make_tuple(1, 2, 2), std::make_tuple(2, 4, 8), std::make_tuple(3, 6, 18)));
 
 TEST_P(MultiplierParamTupleTest, param_tuple_001)
 {
 	int left = std::get<0>(GetParam());
 	int right = std::get<1>(GetParam());
 	int result = std::get<2>(GetParam());
-	EXPECT_EQ(result, mult_.invoke(left,right));
+	EXPECT_EQ(result, mult_.invoke(left, right));
 }

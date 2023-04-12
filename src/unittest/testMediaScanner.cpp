@@ -1,12 +1,12 @@
 /******************************************************************************
  *                                                                            *
- * Copyright (C) 2023 Luca Tricerri        *
+ * Copyright (C) 2023 Luca Tricerri                                           *
  * All Rights Reserved.                                                       *
  *                                                                            *
  ******************************************************************************/
 
 /**
- * @luca.triceri@iit.it
+ * @triccyx@gmail.com
  */
 
 #include "InterfaceForCApi.h"
@@ -35,10 +35,10 @@ TEST(MediaScanner, MediaScanner_simple_negative_001)
 	InterfaceForCApi_Mock api;
 	MediaScanner mediaScanner(api);
 
-	EXPECT_CALL(api, open_c(_,_)).WillRepeatedly(DoAll(Return(-1)));
+	EXPECT_CALL(api, open_c(_, _)).WillRepeatedly(DoAll(Return(-1)));
 	EXPECT_CALL(api, udev_new_c()).WillRepeatedly(DoAll(Return(nullptr)));
 
-	//The test
+	// The test
 	EXPECT_FALSE(mediaScanner.scan("/dev/media0"));
 	EXPECT_FALSE(mediaScanner.scan("/dev/v4l"));
 }
@@ -48,10 +48,10 @@ TEST(MediaScanner, MediaScanner_simple_negative_002)
 	InterfaceForCApi_Mock api;
 	MediaScanner mediaScanner(api);
 
-	EXPECT_CALL(api, open_c(_,_)).WillRepeatedly(DoAll(Return(1)));
+	EXPECT_CALL(api, open_c(_, _)).WillRepeatedly(DoAll(Return(1)));
 	EXPECT_CALL(api, udev_new_c()).WillRepeatedly(DoAll(Return(nullptr)));
 
-	//The test
+	// The test
 	EXPECT_FALSE(mediaScanner.scan("/dev/media0"));
 	EXPECT_FALSE(mediaScanner.scan("/dev/v4l"));
 }
@@ -61,11 +61,11 @@ TEST(MediaScanner, MediaScanner_simple_positive_001)
 	InterfaceForCApi_Mock api;
 	MediaScanner mediaScanner(api);
 
-	EXPECT_CALL(api, open_c(_,_)).WillRepeatedly(DoAll(Return(1)));
+	EXPECT_CALL(api, open_c(_, _)).WillRepeatedly(DoAll(Return(1)));
 	udev tmp;
 	EXPECT_CALL(api, udev_new_c()).WillRepeatedly(DoAll(Return(&tmp)));
 
-	//The test
+	// The test
 	EXPECT_TRUE(mediaScanner.scan("/dev/media0"));
 	EXPECT_TRUE(mediaScanner.scan("/dev/v4l"));
 }

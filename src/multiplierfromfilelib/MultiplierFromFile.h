@@ -1,13 +1,13 @@
 
 /******************************************************************************
  *                                                                            *
- * Copyright (C) 2023 Luca Tricerri        *
+ * Copyright (C) 2023 Luca Tricerri                                           *
  * All Rights Reserved.                                                       *
  *                                                                            *
  ******************************************************************************/
 
 /**
- * @luca.triceri@iit.it
+ * @triccyx@gmail.com
  */
 
 #pragma once
@@ -17,7 +17,7 @@
 class MultiplierFromFile
 {
    public:
-	explicit MultiplierFromFile(const std::string &fileName) : fileName_(fileName){};
+	explicit MultiplierFromFile(const std::string& fileName) : fileName_(fileName){};
 	double invoke(unsigned int leftIndex, unsigned int rightIndex) const;
 	double invoke2(unsigned int leftIndex, unsigned int rightIndex) const;
 	double invoke3(unsigned int leftIndex, unsigned int rightIndex) const;

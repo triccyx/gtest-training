@@ -320,13 +320,13 @@ ASSERT vs EXPECT
 Assert abort the current test while Expect gives only the error but goes on.
 Expect is preferred.
 
-## 4.5. Fixtures
+## 4.5. Test with Fixtures
 If you find yourself writing two or more tests that operate on similar data, you can use a test fixture. This allows you to reuse the same configuration of objects for several different tests.
 
 
 **CODE**: See test:testMultiplierParamAndFixture.cpp
 
-## 4.6. Test with parameters
+## 4.6. Test with Parameters
 
 **CODE**: See code:multiplierlib and   test:testMultiplierParamAndFixture.cpp
 

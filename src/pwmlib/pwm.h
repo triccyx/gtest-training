@@ -1,18 +1,19 @@
 
 /******************************************************************************
  *                                                                            *
- * Copyright (C) 2023 Luca Tricerri        *
+ * Copyright (C) 2023 Luca Tricerri                                           *
  * All Rights Reserved.                                                       *
  *                                                                            *
  ******************************************************************************/
 
 /**
- * @luca.triceri@iit.it
+ * @triccyx@gmail.com
  */
 
 #pragma once
 
 #include <string>
+
 #include "motor.h"
 
 class Pwm
@@ -29,5 +30,5 @@ class Pwm
 	int maxPwmPercent_{100};
 	Motor& motor_;
 
-	double pwmLimit(double& pwmValue) const;						// limit pwm
+	double pwmLimit(double& pwmValue) const;  // limit pwm
 };

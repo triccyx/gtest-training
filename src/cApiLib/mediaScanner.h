@@ -1,13 +1,13 @@
 
 /******************************************************************************
  *                                                                            *
- * Copyright (C) 2023 Luca Tricerri        *
+ * Copyright (C) 2023 Luca Tricerri                                           *
  * All Rights Reserved.                                                       *
  *                                                                            *
  ******************************************************************************/
 
 /**
- * @luca.triceri@iit.it
+ * @triccyx@gmail.com
  */
 
 #include <string>
@@ -17,8 +17,8 @@ class InterfaceForCApi;
 class MediaScanner
 {
    public:
-   MediaScanner(InterfaceForCApi& interface);
-	bool scan(const std::string& media);//method under test
+	MediaScanner(InterfaceForCApi& interface);
+	bool scan(const std::string& media);  // method under test
 
-   InterfaceForCApi &interfaceCApi_;
+	InterfaceForCApi& interfaceCApi_;
 };
