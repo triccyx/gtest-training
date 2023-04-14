@@ -153,8 +153,7 @@ class MyClass
         int getIntFromDatabase(const std::string& query)
         {
             ...
-            mydatabase_.get(query);
-            ...
+            return mydatabase_.get(query);
         }
 };
 ```  
@@ -166,8 +165,7 @@ class MyClass: public Database
         int getIntFromDatabase(const std::string& query)
         {
             ...
-            get(query);
-            ...
+            return get(query);
         }
 };
 ```
@@ -184,8 +182,7 @@ class MyClass
         int getIntFromDatabase(const std::string& query)
         {
             ...
-            mydatabase_.get(query);
-            ...
+            return mydatabase_.get(query);
         }
 };
 ```
@@ -210,6 +207,7 @@ googletest is a testing framework developed by the Testing Technology team with 
 - cmake friend
 - visual studio code friend
 - cross-platform
+- works also with C language (with limitations)
 
 ## 5.1. The tests are simple
 
