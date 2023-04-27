@@ -210,12 +210,16 @@ googletest is a testing framework developed by the Testing Technology team with 
 - works also with C language (with limitations)
 
 ## 5.1. The tests are simple
-
+The **GIVEN-WHEN-THEN** rule
 ```c++
 TEST(Multiplier, check_multiply_001)
 {
+    //Given
     Multiplier mult;
-    EXPECT_EQ(8/*expected*/, mult.invoke(4, 2)/*current*/);
+    //When
+    int result=mult.invoke(4, 2);
+    //Then
+    EXPECT_EQ(8/*expected*/, result/*current*/);
 }
 ```
 
