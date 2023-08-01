@@ -1,22 +1,42 @@
-|                    |                                  |
-| :----------------- | :------------------------------- |
-| **Objectives**     | Increase code quality by example |
-| **Teacher**        | Luca Tricerri                    |
-| **Duration**       | 3 sessions each of 2 hours       |
-| **Prerequisites**  | basic C++11 or Java              |
-| **Class Max Size** | 10                               |
-| **Target**         | PhD students                     |
+
+![alt](img/Bitron.png)
+
+<p style="text-align: right;"><i>Rev:1.0<br>Date:01-05-2023</i></p>
+<h1 style="text-align: center;">Bitron <br> Unit test</h1>
+<br>
+
+<p style="text-align: center;"><b>Notice to all persons receiving this document</b> <br> </p>
+This document is the property of BITRON S.p.A. and is delivered on the express condition that is not to be disclosed, reproduced in whole or in part or used for manufacture for anyone other than BITRON S.p.A. without its written consent and that no right is granted to disclose or to use any information contained in said document. This restriction does not limit to the right to use information obtained from another source.<br><br>
+
+
+
+|Document ID|TRAINING.md|
+|-|-|
+
+<br><br>
+
+||Public||Internal|X|Confidential||Restricted|
+|-|-|-|-|-|-|-|-|
+<br><br>
+
+**REVISION HISTORY**
+
+|    Rel.    |Date|Author|Description/Section Attached|Approved                                  |
+| -|-|-|-|-|
+|1.0|01-05-2023|Luca Tricerri|First edition|Giovanni Gallotti|
+
 
 # 1. Reading Note 
 This file can be read using
 - VisualStudio code
 - Markdown Preview Github Styling
+- The document is also distributed via .pdf on request.
   
 Launch VS Code Quick Open (Ctrl+P), paste the following command, and press enter. 
 ``` 
 ext install bierner.markdown-preview-github-styles
 ```
-# 2. Description
+# 2. Abstract
 Increase code quality using unit tests via gtest and gmock.
 
 ## 2.1. Main Topics
@@ -25,8 +45,8 @@ Increase code quality using unit tests via gtest and gmock.
 - What is moking?
 - How to mock with gmock
 
-## 2.2. When
-End of April, if possible in presence.
+## 2.2. How
+If possible in presence.
 
 ## 2.3. Prerequisite
 - Create a Github account (https://github.com/)
@@ -199,6 +219,7 @@ The use of the inheritance technique tightly couples parent class with child cla
 - https://www.guru99.com/unit-testing-guide.html  
 - Test coverage: https://www.guru99.com/test-coverage-in-software-testing.html#1
 - https://betterprogramming.pub/13-tips-for-writing-useful-unit-tests-ca20706b5368
+- https://geosoft.no/unittesting.html
 
 # 5. GTEST
 googletest is a testing framework developed by the Testing Technology team with Google’s specific requirements and constraints in mind. Whether you work on Linux, Windows, or a Mac.
