@@ -612,7 +612,25 @@ See file: InterfaceForCApi.h
 
 **CODE**: See test:testMediaScanner.cpp
 
-## 9.9. Reference for gmock
+## 9.9. Mock without explicit injection
+todo
+```c++
+    auto dep = std::make_unique<OCPP_1_6::TransactionRelatedMsgQueueExt_Mock>(1000);  // order is important 1
+    EXPECT_CALL(*dep, processMsg("uuid", true)).Times(1);                             // order is important 2
+    mh._transactionRelatedMessagesQueue = std::move(dep);   
+```
+
+
+## 9.10. Mock smart pointer
+todo
+
+```c++
+    auto dep = std::make_unique<OCPP_1_6::TransactionRelatedMsgQueueExt_Mock>(1000);  // order is important 1
+    EXPECT_CALL(*dep, processMsg("uuid", true)).Times(1);                             // order is important 2
+    mh._transactionRelatedMessagesQueue = std::move(dep);   
+```
+
+## 9.11. Reference for gmock
 http://google.github.io/googletest/gmock_cook_book.html
 
 # 10. Exercises              
